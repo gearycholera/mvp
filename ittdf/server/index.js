@@ -1,5 +1,6 @@
+require('../tmdb_api_key');
 const express = require('express');
-var bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 
 let app = express();
 

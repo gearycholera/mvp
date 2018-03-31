@@ -1,5 +1,7 @@
+# My Ignore Files
 .DS_Store
 bundle.js
+tmdb_api_key.js
 
 ### node etc ###
 
