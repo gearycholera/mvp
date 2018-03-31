@@ -11,8 +11,8 @@ export default class SearchContainer extends React.Component {
     return (
       <div>
         <div>Search Box</div>
-        <SearchBar />
-        <SearchBar />
+        <SearchBar getID={this.props.getID}/>
+        <SearchBar getID={this.props.getID}/>
       </div>
     );
   }

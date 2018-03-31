@@ -11,14 +11,19 @@ export default class SearchBar extends React.Component {
       results: [],
       id: ''
     }
-    
+
     this.handleInput = this.handleInput.bind(this);
+    this.handleClick = this.handleClick.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.getRelevantData = this.getRelevantData.bind(this);
   }
 
   handleInput(q) {
     this.setState({term: q.target.value});
+  }
+
+  handleClick() {
+    this.setState({results: []});
   }
 
   handleSearch() {
@@ -46,7 +51,11 @@ export default class SearchBar extends React.Component {
   render() {
 
     const list = this.state.results.map((movie, index) =>
-      <li key={index}>{movie.title} ({movie.year})</li> 
+      <li key={index} onClick={ () => { 
+        this.props.getID(movie.id); 
+        this.handleClick() }}>
+        {movie.title} ({movie.year})
+      </li> 
     );
 
     return (

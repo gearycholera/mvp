@@ -8,16 +8,23 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      movie1: '',
-      movie2: ''
+      movieIDs: []
     };
+
+    this.setMovieID = this.setMovieID.bind(this);
+  }
+
+  setMovieID(id) {
+    var updated = this.state.movieIDs.slice();
+    updated.push(id);
+    this.setState({movieIDs: updated})
   }
 
   render() {
     return (
       <div>
         <h3>is that the dude from...</h3>
-        <SearchContainer/>
+        <SearchContainer getID={this.setMovieID}/>
         <Results />
       </div>
     );
