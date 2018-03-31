@@ -2,6 +2,7 @@
 .DS_Store
 bundle.js
 tmdb_api_key.js
+package-lock.json
 
 ### node etc ###
 

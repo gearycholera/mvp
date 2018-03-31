@@ -6,14 +6,19 @@ import SearchContainer from './components/searchcontainer.jsx'
 class App extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      movie1: '',
+      movie2: ''
+    };
   }
 
   render() {
     return (
       <div>
         <h3>is that the dude from...</h3>
+        <SearchContainer/>
         <Results />
-        <SearchContainer />
       </div>
     );
   }
