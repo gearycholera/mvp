@@ -17,52 +17,54 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+<!-- Name the product in a way the reader (i.e. your target customers) will understand.-->
   > Is That The Dude From...
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+<!--Describe who the market for the product is and what benefit they get. One sentence only underneath the title. -->
   > If you're watching a movie and think an actor was in another movie you saw, but you aren't really sure... check out ITTDF!
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+<!--Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good. -->
   > ITTDF can help you quickly identify if the actor you kinda recognize was also in that one movie you saw wayyy back and only vaguely remember.
 
 ## Problem ##
-  > Describe the problem your product solves.
+<!--Describe the problem your product solves. -->
   > Comparing casts between movies has always been a chore. While sites like IMDB and TMDB show a lot of information for individual movies, comparing two films has required you to have two tabs open and manually scanning each list one at a time. What a nightmare!
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+<!--Describe how your product elegantly solves the problem. -->
   > ITTDF quickly analyzes cast/crew from movies and finds out which ones have worked together before, so you don't have to! Welcome to the future!
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+<!--A quote from a spokesperson in your company. -->
   > "Growing up as a child of Indian immigrants, I had to watch a lot of movies and figure out if one of the actors in the movie I was watching was the same dude from that other movie I saw a little while ago. Everyday was a struggle. I'm afraid to say, the relentless pressure to quickly and accurately identify actors pushed me over the edge...
 
   Until I decided to take my life back! 
 
   I was resolved to create a solution to put an end to this nightmare that has plagued so many immigrant children from Stockton, California. I have spent literally DOZENS of hours programming and now, I am proud to present to you and the world, 'Is That The Dude From...'"
-  > Giri Kalra (creator, ITTDF)
+  
+  - Giri Kalra (creator, ITTDF)
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+<!--Describe how easy it is to get started. -->
   > Just enter the name of the movie you're watching, and the name of the movie you think the dude might be from, and Viola!
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+<!--Provide a quote from a hypothetical customer that describes how they experienced the benefit. -->
   > "Yeah... It definitely came in handy that one time."
-  > - Dave C.
+  
+   - Dave C.
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+<!--Wrap it up and give pointers where the reader should go next. -->
   > We at ITTDF have always believed in a brighter and less mentally-exhausting future
-  > Why spend time pondering over an actor's filmography when you could be spending time with your loved ones?
-  > You do love them, right?!
-  >
-  > Checkout Is That The Dude From... and help us create a new era of film cast/crew comparsions!
-  >
-  > 
-  > 
-  > Prosopagnosia is a rare disorder that is characterized by the inability to recognize the faces of familiar people, typically as a result of damage to the brain.
-  > If you want to help, please make a donation at https://secure.thebiggive.org.uk/donation/to/63618/20490
+  Why spend time pondering over an actor's filmography when you could be spending time with your loved ones?
+  You do love them, right?!
+  
+  Checkout Is That The Dude From... and help us create a new era of film cast/crew comparsions!
+  
+   
+   
+  Prosopagnosia is a rare disorder that is characterized by the inability to recognize the faces of familiar people, typically as a result of damage to the brain.
+  If you want to help, please make a donation at https://secure.thebiggive.org.uk/donation/to/63618/20490
