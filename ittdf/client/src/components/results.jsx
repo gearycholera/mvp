@@ -13,9 +13,10 @@ export default class Results extends React.Component {
   compareMovies() {
     var castsInfo = [];
     var movieIDs = {};
+    var movieTitles = {};
     var movies = this.props.movies;
     movies.forEach((movie, ind) => {
-      if (movie !== null) movieIDs[ind] = movie.id;
+      if (movie !== null) movieIDs[ind] = movie.id; movieTitles[ind] = movie.title;
     });
     if (Object.keys(movieIDs).length > 1) {
       axios.get('/compareMovies', { params: movieIDs })
@@ -24,7 +25,7 @@ export default class Results extends React.Component {
           var movie = JSON.parse(res);
           castsInfo.push(this.getRelevantCastData(movie.cast));
         });
-        this.compareCasts(castsInfo)
+        this.compareCasts(castsInfo, movieTitles)
       })
       .catch((error) => {
         console.log(error);
@@ -42,7 +43,7 @@ export default class Results extends React.Component {
     return castMembers;
   }
 
-  compareCasts(casts) {
+  compareCasts(casts, titles) {
     var common = [];
     var counts = {};
     casts.forEach((cast) => {
@@ -53,9 +54,10 @@ export default class Results extends React.Component {
     })
     for (var key in counts) {
       if (counts[key] === casts.length) {
-        var intersect = [key];
-        casts.forEach((cast) => {
-          intersect.push(cast[key])
+        var intersect = [key + ' played '];
+        casts.forEach((cast, ind) => {
+          if (ind < casts.length - 1) intersect.push(cast[key] + ' in ' + titles[ind] + ' and ')
+          else intersect.push(cast[key] + ' in ' + titles[ind] )
         })
         common.push(intersect);
       }
