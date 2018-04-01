@@ -9,8 +9,7 @@ export default class SearchBar extends React.Component {
     this.state = {
       term: '',
       results: [],
-      id: '',
-      title: ''
+      id: ''
     }
 
     this.handleInput = this.handleInput.bind(this);
@@ -20,11 +19,11 @@ export default class SearchBar extends React.Component {
   }
 
   handleInput(q) {
-    this.setState({term: q.target.value, title: q.target.value});
+    this.setState({term: q.target.value});
   }
 
   handleClick(movie) {
-    this.setState({results: [], title: `${movie.title} (${movie.year})`});
+    this.setState({results: [], term: `${movie.title} (${movie.year})`});
   }
 
   handleSearch() {
@@ -61,7 +60,7 @@ export default class SearchBar extends React.Component {
 
     return (
       <div>
-        <input type="text" value={this.state.title} onChange={this.handleInput} />
+        <input type="text" value={this.state.term} onChange={this.handleInput} />
         <button onClick={this.handleSearch}>search</button>
         <ul>{list}</ul>
       </div>
