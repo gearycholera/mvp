@@ -8,7 +8,7 @@ let app = express();
 app.use(express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.json())
 
-var options = { method: 'GET',
+var movieSearch = { method: 'GET',
   url: 'https://api.themoviedb.org/3/search/movie',
   qs: 
    { include_adult: 'false',
@@ -20,12 +20,18 @@ var options = { method: 'GET',
 };
 
 app.get('/searchMovie', ((req, res) => {
-  options.qs.query = req.query.title;
+  movieSearch.qs.query = req.query.title;
 
-  request(options, function (error, response, body) {
+  request(movieSearch, function (error, response, body) {
     if (error) throw new Error(error);
     else res.send(body);
   });
+
+}));
+
+app.get('/compareMovies', ((req, res) => {
+  console.log(req.query.ids);
+  res.send('compareThem');
 }));
 
 let port = 3000;

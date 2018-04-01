@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Results from './components/results.jsx';
-import SearchContainer from './components/searchcontainer.jsx'
+import SearchContainer from './components/searchcontainer.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class App extends React.Component {
       <div>
         <h3>is that the dude from...</h3>
         <SearchContainer getID={this.setMovieID}/>
-        <Results />
+        <Results ids={this.state.movieIDs}/>
       </div>
     );
   }
