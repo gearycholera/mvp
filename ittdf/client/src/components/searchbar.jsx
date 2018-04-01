@@ -9,7 +9,8 @@ export default class SearchBar extends React.Component {
     this.state = {
       term: '',
       results: [],
-      id: ''
+      id: '',
+      title: ''
     }
 
     this.handleInput = this.handleInput.bind(this);
@@ -19,11 +20,11 @@ export default class SearchBar extends React.Component {
   }
 
   handleInput(q) {
-    this.setState({term: q.target.value});
+    this.setState({term: q.target.value, title: q.target.value});
   }
 
-  handleClick() {
-    this.setState({results: []});
+  handleClick(movie) {
+    this.setState({results: [], title: `${movie.title} (${movie.year})`});
   }
 
   handleSearch() {
@@ -53,14 +54,14 @@ export default class SearchBar extends React.Component {
     const list = this.state.results.map((movie, index) =>
       <li key={index} onClick={ () => { 
         this.props.getID(movie.id); 
-        this.handleClick() }}>
+        this.handleClick(movie) }}>
         {movie.title} ({movie.year})
       </li> 
     );
 
     return (
       <div>
-        <form> <input type="text" onChange={this.handleInput} /> </form>
+        <input type="text" value={this.state.title} onChange={this.handleInput} />
         <button onClick={this.handleSearch}>search</button>
         <ul>{list}</ul>
       </div>
