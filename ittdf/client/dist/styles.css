@@ -1,0 +1,151 @@
+body {
+  background-image: url(https://wallpapercave.com/wp/DO9v47p.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#title {
+  font-size: 50px;
+  font-family: courier;
+}
+
+#searchbtns {
+  padding-bottom: 50px;
+}
+
+#addbtn {
+  width: 315px;
+  background-color:#ff5bb0;
+  -moz-border-radius:28px;
+  -webkit-border-radius:28px;
+  border-radius:28px;
+  border:1px solid #ee1eb5;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Courier New;
+  font-size:19px;
+  font-weight:bold;
+  padding:13px 31px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #c70067;
+}
+#addbtn:hover {
+  background-color:#ef027d;
+}
+#addbtn:active {
+  position:relative;
+  top:1px;
+}
+
+#rembtn {
+  width: 315px;
+  background-color:#f24537;
+  -moz-border-radius:28px;
+  -webkit-border-radius:28px;
+  border-radius:28px;
+  border:1px solid #d02718;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Courier New;
+  font-size:19px;
+  font-weight:bold;
+  padding:13px 31px;
+  text-decoration:none;
+  text-shadow:0px 1px 6px #810e05;
+}
+#rembtn:hover {
+  background-color:#c62d1f;
+}
+#rembtn:active {
+  position:relative;
+  top:1px;
+}
+
+#searchbtn {
+  width: 135px;
+  background-color:#3d94f6;
+  -moz-border-radius:28px;
+  -webkit-border-radius:28px;
+  border-radius:28px;
+  border:1px solid #337fed;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Courier New;
+  font-size:19px;
+  font-weight:bold;
+  padding:13px 31px;
+  text-decoration:none;
+  text-shadow:0px 1px 6px #1570cd;
+}
+#searchbtn:hover {
+  background-color:#1e62d0;
+}
+#searchbtn:active {
+  position:relative;
+  top:1px;
+}
+
+#clearbtn {
+  width: 135px;
+  background-color:#79bbff;
+  -moz-border-radius:28px;
+  -webkit-border-radius:28px;
+  border-radius:28px;
+  border:1px solid #84bbf3;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Courier New;
+  font-size:19px;
+  font-weight:bold;
+  padding:13px 31px;
+  text-decoration:none;
+  text-shadow:0px 1px 6px #528ecc;
+}
+#clearbtn:hover {
+  background-color:#378de5;
+}
+#clearbtn:active {
+  position:relative;
+  top:1px;
+}
+
+#comparebtn {
+  background-color:#44c767;
+  -moz-border-radius:28px;
+  -webkit-border-radius:28px;
+  border-radius:28px;
+  border:1px solid #18ab29;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Courier New;
+  font-size:19px;
+  font-weight:bold;
+  padding:13px 31px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #2f6627;
+}
+#comparebtn:hover {
+  background-color:#5cbf2a;
+}
+#comparebtn:active {
+  position:relative;
+  top:1px;
+}
+
+#searchbox {
+  width: 500px;
+  height: 50px;
+  margin-right: 20px;
+  font-size: 30px;
+  font-family: courier;
+}
+
+#searchline {
+  display: flex;
+  align-items: flex-end;
+}

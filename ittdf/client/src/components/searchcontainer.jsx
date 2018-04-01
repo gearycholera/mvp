@@ -30,7 +30,7 @@ export default class SearchContainer extends React.Component {
 
     const removeButton = [];
     if (this.state.num > 2) {
-      removeButton.push(<button key={1} onClick={this.removeSearchBars}>remove movie searchbar</button>)
+      removeButton.push(<button id='rembtn' key={1} onClick={this.removeSearchBars}>remove movie searchbar</button>)
     }
 
     const bars = [];
@@ -40,8 +40,10 @@ export default class SearchContainer extends React.Component {
 
     return (
       <div>
-        <button onClick={this.addSearchBars}>add movie searchbar</button>
-        {removeButton}
+        <div id="searchbtns">
+          <button id='addbtn' onClick={this.addSearchBars}>add movie searchbar</button>
+          {removeButton}
+        </div>
         {bars}
       </div>
     );

@@ -29,7 +29,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h3>is that the dude from...</h3>
+        <h3 id='title'>is that the dude from...</h3>
         <SearchContainer setMovieData={this.setMovieData} clearMovieData={this.clearMovieData}/>
         <Results movies={this.state.movies}/>
       </div>

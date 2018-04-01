@@ -11,8 +11,10 @@ export default class SearchBar extends React.Component {
       id: '', 
       clear: false
     }
+    this.timeout = null;
     this.handleInput = this.handleInput.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleClear = this.handleClear.bind(this);
     this.getRelevantData = this.getRelevantData.bind(this);
@@ -29,6 +31,12 @@ export default class SearchBar extends React.Component {
       term: `${movie.title} (${movie.year})`, 
       id: movie.id 
     });
+  }
+
+  handleKeyPress (e) {
+    if (e.key === 'Enter') {
+      this.handleSearch();
+    }
   }
 
   handleSearch() {
@@ -60,9 +68,9 @@ export default class SearchBar extends React.Component {
 
   render() {
 
-    let buttonSwitch = <button onClick={this.handleSearch}>search</button>
+    let buttonSwitch = <button id='searchbtn' onClick={this.handleSearch}>search</button>
     if (this.state.clear) {
-      buttonSwitch = <button onClick={this.handleClear}>clear</button>
+      buttonSwitch = <button id='clearbtn' onClick={this.handleClear}>clear</button>
     }
 
     const list = this.state.results.map((movie, index) =>
@@ -75,8 +83,10 @@ export default class SearchBar extends React.Component {
 
     return (
       <div>
-        <input type="text" value={this.state.term} onChange={this.handleInput} />
-        {buttonSwitch}
+        <div id='searchline'>
+          <input id='searchbox' type="text" value={this.state.term} onChange={this.handleInput} onKeyPress={this.handleKeyPress}/>
+          {buttonSwitch}
+        </div>
         <ul>{list}</ul>
       </div>
     );
