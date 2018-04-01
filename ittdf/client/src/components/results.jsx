@@ -16,7 +16,10 @@ export default class Results extends React.Component {
     var movieTitles = {};
     var movies = this.props.movies;
     movies.forEach((movie, ind) => {
-      if (movie !== null) movieIDs[ind] = movie.id; movieTitles[ind] = movie.title;
+      if (movie !== null) {
+        movieIDs[ind] = movie.id; 
+        movieTitles[ind] = movie.title;
+      }
     });
     if (Object.keys(movieIDs).length > 1) {
       axios.get('/compareMovies', { params: movieIDs })
