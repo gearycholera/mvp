@@ -5,11 +5,7 @@ import axios from 'axios';
 export default class Results extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      commonCast: []
-    }
-
+    this.state = { commonCast: [] };
     this.compareMovies = this.compareMovies.bind(this);
     this.getRelevantCastData = this.getRelevantCastData.bind(this);
   }
@@ -18,23 +14,29 @@ export default class Results extends React.Component {
     var castsInfo = [];
     var movieIDs = {};
     var movies = this.props.movies;
-
+    var allBlank = true;
     movies.forEach((movie, ind) => {
-      if (movie !== null) movieIDs[ind] = movie.id;
+      if (movie !== null) {
+        movieIDs[ind] = movie.id; 
+        allBlank = false;
+      }
     })
-
-    axios.get('/compareMovies', { params: movieIDs })
-    .then((response) => {
-      response.data.forEach((res) => {
-        var movie = JSON.parse(res);
-        castsInfo.push(this.getRelevantCastData(movie.cast));
-      });
-      this.compareCasts(castsInfo)
-    })
-    .catch((error) => {
-      console.log(error);
-    })
-
+    if (allBlank) this.setState({ commonCast: [] })
+    if (Object.keys(movieIDs).length > 1) {
+      axios.get('/compareMovies', { params: movieIDs })
+      .then((response) => {
+        response.data.forEach((res) => {
+          var movie = JSON.parse(res);
+          castsInfo.push(this.getRelevantCastData(movie.cast));
+        });
+        this.compareCasts(castsInfo)
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+    } else {
+      this.setState({ commonCast: [] });
+    }
   }
 
   getRelevantCastData(castData) {
