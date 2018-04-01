@@ -32,11 +32,13 @@ export default class SearchBar extends React.Component {
   }
 
   handleSearch() {
-    axios.get('/searchMovie', { params: { title: this.state.term } })
-      .then((response) => {
-        this.setState({results: this.getRelevantData(response.data.results)})
-      })
-      .catch((err) => { console.log(err) })
+    if (this.state.term !== '') {
+      axios.get('/searchMovie', { params: { title: this.state.term } })
+        .then((response) => {
+          this.setState({results: this.getRelevantData(response.data.results)})
+        })
+        .catch((err) => { console.log(err) })
+    }
   }
 
   handleClear() {
