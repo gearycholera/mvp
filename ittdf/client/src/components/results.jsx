@@ -14,14 +14,9 @@ export default class Results extends React.Component {
     var castsInfo = [];
     var movieIDs = {};
     var movies = this.props.movies;
-    var allBlank = true;
     movies.forEach((movie, ind) => {
-      if (movie !== null) {
-        movieIDs[ind] = movie.id; 
-        allBlank = false;
-      }
-    })
-    if (allBlank) this.setState({ commonCast: [] })
+      if (movie !== null) movieIDs[ind] = movie.id;
+    });
     if (Object.keys(movieIDs).length > 1) {
       axios.get('/compareMovies', { params: movieIDs })
       .then((response) => {
@@ -70,7 +65,7 @@ export default class Results extends React.Component {
 
   render() {
     const list = this.state.commonCast.map((person, index) =>
-      <li key={index}>{person}</li> 
+      <li key={index}>{person}</li>
     );
 
     return (
