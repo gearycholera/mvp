@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import SearchBar from './searchbar.jsx';
 
 export default class SearchContainer extends React.Component {
-  
+
   constructor(props) {
     super(props);
     this.state = { num: 2 };
@@ -34,7 +34,7 @@ export default class SearchContainer extends React.Component {
 
     const bars = [];
     for (var i = 0 ; i < this.state.num; i++) {
-      bars.push(<SearchBar key={i} getID={this.props.getID}/>)
+      bars.push(<SearchBar key={i} setMovieData={this.props.setMovieData} clearMovieData={this.props.clearMovieData}/>)
     }
 
     return (

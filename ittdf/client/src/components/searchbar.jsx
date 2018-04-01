@@ -5,25 +5,30 @@ import axios from 'axios';
 export default class SearchBar extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      term: '',
-      results: [],
-      id: ''
+    this.state = { 
+      term: '', 
+      results: [], 
+      id: '', 
+      clear: false
     }
-
     this.handleInput = this.handleInput.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
+    this.handleClear = this.handleClear.bind(this);
     this.getRelevantData = this.getRelevantData.bind(this);
   }
 
   handleInput(q) {
-    this.setState({term: q.target.value});
+    this.setState({ term: q.target.value });
   }
 
   handleClick(movie) {
-    this.setState({results: [], term: `${movie.title} (${movie.year})`});
+    this.setState({ 
+      results: [], 
+      clear: true, 
+      term: `${movie.title} (${movie.year})`, 
+      id: movie.id 
+    });
   }
 
   handleSearch() {
@@ -31,9 +36,12 @@ export default class SearchBar extends React.Component {
       .then((response) => {
         this.setState({results: this.getRelevantData(response.data.results)})
       })
-      .catch((err) => {
-        console.log(err);
-      })
+      .catch((err) => { console.log(err) })
+  }
+
+  handleClear() {
+    this.setState({ term: '' });
+    this.props.clearMovieData(this.state.id)
   }
 
   getRelevantData(movieList) {
@@ -50,9 +58,14 @@ export default class SearchBar extends React.Component {
 
   render() {
 
+    let buttonSwitch = <button onClick={this.handleSearch}>search</button>
+    if (this.state.clear) {
+      buttonSwitch = <button onClick={this.handleClear}>clear</button>
+    }
+
     const list = this.state.results.map((movie, index) =>
       <li key={index} onClick={ () => { 
-        this.props.getID(movie.id); 
+        this.props.setMovieData(movie.title, movie.id); 
         this.handleClick(movie) }}>
         {movie.title} ({movie.year})
       </li> 
@@ -61,7 +74,7 @@ export default class SearchBar extends React.Component {
     return (
       <div>
         <input type="text" value={this.state.term} onChange={this.handleInput} />
-        <button onClick={this.handleSearch}>search</button>
+        {buttonSwitch}
         <ul>{list}</ul>
       </div>
     );

@@ -6,26 +6,31 @@ import SearchContainer from './components/searchcontainer.jsx';
 class App extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      movieIDs: []
-    };
-
-    this.setMovieID = this.setMovieID.bind(this);
+    this.state = { movies: [] };
+    this.setMovieData = this.setMovieData.bind(this);
+    this.clearMovieData = this.clearMovieData.bind(this);
   }
 
-  setMovieID(id) {
-    var updated = this.state.movieIDs.slice();
-    updated.push(id);
-    this.setState({movieIDs: updated})
+  setMovieData(title, id) {
+    var updated = this.state.movies.slice();
+    updated.push({id: id, title: title});
+    this.setState({movies: updated})
+  }
+
+  clearMovieData(id) {
+    var movies = this.state.movies.slice();
+    movies.forEach((movie, ind) => {
+      if (movie.id === id) movies.splice(ind, 1);
+    })
+    this.setState({ movies: movies })
   }
 
   render() {
     return (
       <div>
         <h3>is that the dude from...</h3>
-        <SearchContainer getID={this.setMovieID}/>
-        <Results ids={this.state.movieIDs}/>
+        <SearchContainer setMovieData={this.setMovieData} clearMovieData={this.clearMovieData}/>
+        <Results movies={this.state.movies}/>
       </div>
     );
   }
