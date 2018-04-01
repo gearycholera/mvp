@@ -40,19 +40,19 @@ export default class SearchBar extends React.Component {
   }
 
   handleClear() {
-    this.setState({ term: '' });
+    this.setState({ term: '', clear: false });
     this.props.clearMovieData(this.state.id)
   }
 
   getRelevantData(movieList) {
-    var movies = []
+    var movies = [];
     movieList.forEach((movie) => {
       movies.push({
         title: movie.title,
         year: movie.release_date.slice(0,4),
         id: movie.id
       });
-    })
+    });
     return movies;
   }
 
@@ -65,7 +65,7 @@ export default class SearchBar extends React.Component {
 
     const list = this.state.results.map((movie, index) =>
       <li key={index} onClick={ () => { 
-        this.props.setMovieData(movie.title, movie.id); 
+        this.props.setMovieData(movie.title, movie.id, this.props.ind); 
         this.handleClick(movie) }}>
         {movie.title} ({movie.year})
       </li> 

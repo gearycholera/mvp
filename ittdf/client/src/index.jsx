@@ -11,17 +11,18 @@ class App extends React.Component {
     this.clearMovieData = this.clearMovieData.bind(this);
   }
 
-  setMovieData(title, id) {
+  setMovieData(title, id, ind) {
     var updated = this.state.movies.slice();
-    updated.push({id: id, title: title});
+    updated[ind] = {id: id, title: title};
     this.setState({movies: updated})
   }
 
-  clearMovieData(id) {
+  clearMovieData(id, index) {
     var movies = this.state.movies.slice();
     movies.forEach((movie, ind) => {
-      if (movie.id === id) movies.splice(ind, 1);
+      if (movie !== null && movie.id === id) movies[ind] = null;
     })
+    if (index) movies[index] = null;
     this.setState({ movies: movies })
   }
 

@@ -28,33 +28,27 @@ app.get('/searchMovie', ((req, res) => {
   });
 }));
 
-'https://api.themoviedb.org/3/movie/~/credits'
-
 var castSearch = { method: 'GET',
   url: '',
-  qs: { 
-    api_key: TMDB_API_KEY 
-  },
+  qs: { api_key: TMDB_API_KEY },
   body: '{}' 
 };
 
 app.get('/compareMovies', ((req, res) => {
   var output = [];
-  castSearch.url = `https://api.themoviedb.org/3/movie/${req.query.id1}/credits`
-  request(castSearch, function (error, response, body) {
-    if (error) throw new Error(error);
-    else {
-      output.push(body);
-      castSearch.url = `https://api.themoviedb.org/3/movie/${req.query.id2}/credits`
-      request(castSearch, function (error, response, body) {
-        if (error) throw new Error(error);
-        else {
-          output.push(body);
-          res.send(output);
-        }
-      });
-    }
-  });
+  var quantity = Object.keys(req.query).length;
+  var counter = 0;
+  for (var key in req.query) {
+    castSearch.url = `https://api.themoviedb.org/3/movie/${req.query[key]}/credits`
+    request(castSearch, function (error, response, body) {
+      if (error) throw new Error(error);
+      else {
+        output.push(body);
+        counter++;
+        if (counter === quantity) res.send(output);
+      }
+    })
+  }
 }));
 
 let port = 3000;

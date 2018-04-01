@@ -15,21 +15,26 @@ export default class Results extends React.Component {
   }
 
   compareMovies() {
-    var ids = this.props.ids;
     var castsInfo = [];
-    if (ids.length === 2) {
-      axios.get('/compareMovies', { params: { id1: ids[0], id2: ids[1] } })
-      .then((response) => {
-        response.data.forEach((res) => {
-          var movie = JSON.parse(res);
-          castsInfo.push(this.getRelevantCastData(movie.cast));
-        });
-        this.compareCasts(castsInfo)
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-    }
+    var movieIDs = {};
+    var movies = this.props.movies;
+
+    movies.forEach((movie, ind) => {
+      movieIDs[ind] = movie.id
+    })
+
+    axios.get('/compareMovies', { params: movieIDs })
+    .then((response) => {
+      response.data.forEach((res) => {
+        var movie = JSON.parse(res);
+        castsInfo.push(this.getRelevantCastData(movie.cast));
+      });
+      this.compareCasts(castsInfo)
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+
   }
 
   getRelevantCastData(castData) {
@@ -57,7 +62,7 @@ export default class Results extends React.Component {
 
     return (
       <div>
-        <button onClick={this.compareMovies}>COMPARE THE MOVIES</button>
+        <button onClick={this.compareMovies}>compare the movies</button>
         <ul>{list}</ul>
       </div>
     );

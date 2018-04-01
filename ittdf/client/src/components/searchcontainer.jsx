@@ -22,6 +22,7 @@ export default class SearchContainer extends React.Component {
     if (this.state.num > 2) {
       var num = this.state.num - 1;
       this.setState({num: num});
+      this.props.clearMovieData(null, num);
     }
   }
 
@@ -34,7 +35,7 @@ export default class SearchContainer extends React.Component {
 
     const bars = [];
     for (var i = 0 ; i < this.state.num; i++) {
-      bars.push(<SearchBar key={i} setMovieData={this.props.setMovieData} clearMovieData={this.props.clearMovieData}/>)
+      bars.push(<SearchBar key={i} ind={i} setMovieData={this.props.setMovieData} clearMovieData={this.props.clearMovieData}/>)
     }
 
     return (
