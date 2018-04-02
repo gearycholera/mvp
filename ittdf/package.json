@@ -8,8 +8,8 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "dev-build": "webpack -d --watch",
-    "dev-start": "nodemon server/index.js",
+    "build": "webpack -d --watch",
+    "react": "nodemon server/index.js",
     "start": "webpack && node server/index.js",
     "test": "jest"
   },
