@@ -61,7 +61,7 @@ Once the project moves into development, the press release can be used as a touc
     and hey bill paxton is in both movies too
     that's pretty cool"
 
-    - Johnny O.
+   - Johnny O.
 
 ## Closing and Call to Action ##
 <!--Wrap it up and give pointers where the reader should go next. -->
