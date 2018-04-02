@@ -4,6 +4,28 @@ body {
   background-size: cover;
 }
 
+ul {
+  list-style-type: none;
+}
+
+ul#searchresults {
+  column-count: 2;
+  max-width: 500px;
+  padding: 0;
+}
+
+li {
+  border: solid 1px;
+  background-color: white;
+  font-family: courier;
+  font-size: 14px;
+  margin-bottom: 10px;
+  height: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 #title {
   font-size: 50px;
   font-family: courier;

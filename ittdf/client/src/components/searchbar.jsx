@@ -17,6 +17,7 @@ export default class SearchBar extends React.Component {
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleClear = this.handleClear.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.getRelevantData = this.getRelevantData.bind(this);
   }
 
@@ -43,7 +44,7 @@ export default class SearchBar extends React.Component {
     if (this.state.term !== '') {
       axios.get('/searchMovie', { params: { title: this.state.term } })
         .then((response) => {
-          this.setState({results: this.getRelevantData(response.data.results)})
+          this.setState({results: this.getRelevantData(response.data.results)});
         })
         .catch((err) => { console.log(err) })
     }
@@ -52,6 +53,11 @@ export default class SearchBar extends React.Component {
   handleClear() {
     this.setState({ term: '', clear: false });
     this.props.clearMovieData(this.state.id)
+  }
+
+  handleChange (selectedOption) {
+    this.setState({ selectedOption });
+    console.log(`Selected: ${JSON.stringify(selectedOption)}`);
   }
 
   getRelevantData(movieList) {
@@ -87,7 +93,7 @@ export default class SearchBar extends React.Component {
           <input id='searchbox' type="text" value={this.state.term} onChange={this.handleInput} onKeyPress={this.handleKeyPress}/>
           {buttonSwitch}
         </div>
-        <ul>{list}</ul>
+        <ul id='searchresults'>{list}</ul>
       </div>
     );
   }
