@@ -58,7 +58,7 @@ export default class Results extends React.Component {
         common.push(intersect);
       }
     }
-    if (common.length < 1) common.push('well, i guess you were wrong.')
+    if (common.length < 1) common.push('you were wrong. dead wrong.')
     this.setState({ commonCast: common });
   }
 
@@ -69,7 +69,7 @@ export default class Results extends React.Component {
     for (var i = 0; i < this.props.movies.length; i++) {
       if (this.props.movies[i] !== null) counter++;
       if (counter === 2) {
-        compareButton = <button id='comparebtn' onClick={this.compareMovies}>i guess we should check, right?</button>
+        compareButton = <button id='comparebtn' onClick={this.compareMovies}>well, i guess we should check.</button>
       }
     }
 
