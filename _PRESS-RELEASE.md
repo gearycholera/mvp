@@ -56,6 +56,13 @@ Once the project moves into development, the press release can be used as a touc
   
    - Dave C.
 
+   "hey that's actually pretty cool
+    i did terminator and true lies thinking it would just be arnold
+    and hey bill paxton is in both movies too
+    that's pretty cool"
+
+    - Johnny O.
+
 ## Closing and Call to Action ##
 <!--Wrap it up and give pointers where the reader should go next. -->
    We at ITTDF have always believed in a brighter and less mentally-exhausting future
