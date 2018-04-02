@@ -59,8 +59,8 @@ export default class Results extends React.Component {
       if (counts[key] === casts.length) {
         var intersect = [key + ' played '];
         casts.forEach((cast, ind) => {
-          if (ind < casts.length - 1) intersect.push(cast[key] + ' in ' + titles[ind] + ' and ')
-          else intersect.push(cast[key] + ' in ' + titles[ind] )
+          if (ind < casts.length - 1) intersect.push(cast[key] + ' and ')
+          else intersect.push(cast[key] )
         })
         common.push(intersect);
       }
