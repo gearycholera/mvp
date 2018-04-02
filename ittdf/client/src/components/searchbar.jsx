@@ -15,7 +15,7 @@ export default class SearchBar extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.handleClear = this.handleClear.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
-    this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
   handleInput(q) {
@@ -31,8 +31,11 @@ export default class SearchBar extends React.Component {
     });
   }
 
-  handleKeyPress (e) {
+  handleKeyDown (e) {
     if (e.key === 'Enter') this.handleSearch();
+    if (e.keyCode === 8 && e.target.value.length === 1) {
+      this.handleClear();
+    }
   }
 
   handleSearch() {
@@ -80,7 +83,7 @@ export default class SearchBar extends React.Component {
     return (
       <div>
         <div id='searchline'>
-          <input id='searchbox' type="text" value={this.state.term} onChange={this.handleInput} onKeyPress={this.handleKeyPress}/>
+          <input id='searchbox' type="text" value={this.state.term} onChange={this.handleInput} onKeyDown={this.handleKeyDown}/>
           {buttonSwitch}
         </div>
         <ul id='searchresults'>{list}</ul>
