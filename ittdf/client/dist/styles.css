@@ -6,12 +6,13 @@ body {
 
 ul {
   list-style-type: none;
+  max-width: 800px;
+  padding: 0;
 }
 
 ul#searchresults {
   column-count: 2;
   max-width: 500px;
-  padding: 0;
 }
 
 li {
