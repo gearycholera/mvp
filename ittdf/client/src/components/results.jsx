@@ -75,7 +75,9 @@ export default class Results extends React.Component {
 
     return (
       <div>
-        <button id='comparebtn' onClick={this.compareMovies}>let's find out...</button>
+        <div id='comparebtnwrap'>
+          <button id='comparebtn' onClick={this.compareMovies}>let's find out!</button>
+        </div>
         <ul>{list}</ul>
       </div>
     );
