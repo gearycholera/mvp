@@ -17,12 +17,15 @@ ul#searchresults {
 }
 
 li {
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
   border: solid 1px;
   background-color: white;
   font-family: courier;
   font-size: 14px;
   margin-bottom: 5px;
-  height: 20px;
+  height: 25px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
