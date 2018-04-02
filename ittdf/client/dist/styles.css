@@ -2,6 +2,8 @@ body {
   background-image: url(https://wallpapercave.com/wp/DO9v47p.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  display: flex;
+  justify-content: center;
 }
 
 ul {
@@ -19,7 +21,7 @@ li {
   background-color: white;
   font-family: courier;
   font-size: 14px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   height: 20px;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -30,7 +32,7 @@ button {
   display:inline-block;
   cursor:pointer;
   color:#ffffff;
-  font-family:Courier New;
+  font-family: courier;
   font-size:19px;
   font-weight:bold;
   padding:13px 31px;
@@ -46,8 +48,17 @@ button:active {
 }
 
 #title {
-  font-size: 50px;
-  font-family: courier;
+  font-weight:normal;
+  color:#522C06;
+  background-color:#FEFFFC;
+  border: 2px solid #b5a759;
+  letter-spacing:-2pt;
+  word-spacing:2pt;
+  font-size:48px;
+  text-align:left;
+  font-family:courier new, courier, monospace;
+  line-height:1;
+  text-align: center;
 }
 
 #searchbox {
@@ -63,11 +74,12 @@ button:active {
   align-items: flex-end;
 }
 
-#searchbtns {
-  padding-bottom: 50px;
+#moviebarsbtns {
+  padding-bottom: 25px;
 }
 
 #addbtn {
+  margin-right: 20px;
   width: 315px;
   background-color:#ff5bb0;
   border:1px solid #ee1eb5;
@@ -108,6 +120,7 @@ button:active {
 }
 
 #comparebtn {
+  margin-left: 175px;
   background-color:#44c767;
   border:1px solid #18ab29;
   text-shadow:0px 1px 0px #2f6627;

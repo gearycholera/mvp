@@ -40,7 +40,7 @@ export default class SearchContainer extends React.Component {
 
     return (
       <div>
-        <div id="searchbtns">
+        <div id="moviebarsbtns">
           <button id='addbtn' onClick={this.addSearchBars}>add movie searchbar</button>
           {removeButton}
         </div>
