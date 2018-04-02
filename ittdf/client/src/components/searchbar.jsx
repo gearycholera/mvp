@@ -57,7 +57,7 @@ export default class SearchBar extends React.Component {
     var movies = [];
     movieList.forEach((movie) => {
       movies.push({
-        title: movie.title,
+        title: movie.title.toLowerCase(),
         year: movie.release_date.slice(0,4),
         id: movie.id
       });
