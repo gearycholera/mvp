@@ -58,12 +58,21 @@ export default class Results extends React.Component {
         common.push(intersect);
       }
     }
-    console.log(common);
     if (common.length < 1) common.push('well, i guess you were wrong.')
     this.setState({ commonCast: common });
   }
 
   render() {
+
+    let compareButton;
+    var counter = 0;
+    for (var i = 0; i < this.props.movies.length; i++) {
+      if (this.props.movies[i] !== null) counter++;
+      if (counter === 2) {
+        compareButton = <button id='comparebtn' onClick={this.compareMovies}>i guess we should check, right?</button>
+      }
+    }
+
     const list = this.state.commonCast.map((person, index) =>
       <li key={index}>{person}</li>
     );
@@ -71,7 +80,7 @@ export default class Results extends React.Component {
     return (
       <div>
         <div id='comparebtnwrap'>
-          <button id='comparebtn' onClick={this.compareMovies}>let's find out!</button>
+          {compareButton}
         </div>
         <ul>{list}</ul>
       </div>
