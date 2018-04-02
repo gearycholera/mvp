@@ -11,14 +11,11 @@ export default class SearchBar extends React.Component {
       id: '', 
       clear: false
     }
-    this.timeout = null;
     this.handleInput = this.handleInput.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    this.handleKeyPress = this.handleKeyPress.bind(this);
-    this.handleSearch = this.handleSearch.bind(this);
     this.handleClear = this.handleClear.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.getRelevantData = this.getRelevantData.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
   handleInput(q) {
@@ -35,9 +32,7 @@ export default class SearchBar extends React.Component {
   }
 
   handleKeyPress (e) {
-    if (e.key === 'Enter') {
-      this.handleSearch();
-    }
+    if (e.key === 'Enter') this.handleSearch();
   }
 
   handleSearch() {
@@ -53,11 +48,6 @@ export default class SearchBar extends React.Component {
   handleClear() {
     this.setState({ term: '', clear: false });
     this.props.clearMovieData(this.state.id)
-  }
-
-  handleChange (selectedOption) {
-    this.setState({ selectedOption });
-    console.log(`Selected: ${JSON.stringify(selectedOption)}`);
   }
 
   getRelevantData(movieList) {
